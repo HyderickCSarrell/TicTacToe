@@ -3,24 +3,31 @@ import edu.jsu.mcis.*;
 public class TicTacToeKeywords {
 	
 	private TicTacToeModel model;
-	private int curMark = "X";
+	private int curMark = 1;
 	
 	public void startNewGame() {
-		TicTacToeModel model = new TicTacToe();
+		model = new TicTacToeModel();
 	}
 	
 	public void markLocation(int row, int col) {
-		model.MarkLocation(row, col, curMark);
-		if (curMark == "X") {
-			curMark = "O";
+		if (curMark == 1) {
+			model.MarkLocation(row, col, "X");
+			curMark = 0;
 		}
 		else {
-			curMark = "X";
+			model.MarkLocation(row, col, "0");
+			curMark = 1;
 		}
 	}
 	
 	public String getMark(int row, int col) {
-		return model.GetMark(row,col);
+		int myMark = model.GetMark(row,col);
+		if (myMark == 1){
+			return "X";
+		}
+		else {
+			return "O";
+		}
 	}
     
 	public String getWinner() {

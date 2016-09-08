@@ -115,12 +115,7 @@ public class TicTacToeModel {
 			return "O";
 		}
 		else {
-			if (IsFull()) {
-				return "TIE";
-			}
-			else {
-				return "";
-			}
+			return "TIE";
 		}
 	}
 }
