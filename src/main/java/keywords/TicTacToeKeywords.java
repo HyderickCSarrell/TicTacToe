@@ -11,17 +11,17 @@ public class TicTacToeKeywords {
 	
 	public void markLocation(int row, int col) {
 		if (curMark == 1) {
-			model.MarkLocation(row, col, "X");
+			model.markLocation(row, col, "X");
 			curMark = 0;
 		}
 		else {
-			model.MarkLocation(row, col, "0");
+			model.markLocation(row, col, "0");
 			curMark = 1;
 		}
 	}
 	
 	public String getMark(int row, int col) {
-		int myMark = model.GetMark(row,col);
+		int myMark = model.getMark(row,col);
 		if (myMark == 1){
 			return "X";
 		}
@@ -32,6 +32,6 @@ public class TicTacToeKeywords {
     
 	public String getWinner() {
 		
-		return model.CheckWinner();
+		return model.checkWinner();
 	}
 }
