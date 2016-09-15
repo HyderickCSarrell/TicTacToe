@@ -53,7 +53,7 @@ public class TicTacToeGame extends JPanel implements ActionListener{
                                        curButton.setText(model.getMark(1, 0));
 									   break;
                     case "Location11" : markLocationWithCurMark(1,1);
-                                       curButton.setText(model.getMark(1, 0));
+                                       curButton.setText(model.getMark(1, 1));
 									   break;
                     case "Location12" : markLocationWithCurMark(1,2);
                                        curButton.setText(model.getMark(1, 2));
