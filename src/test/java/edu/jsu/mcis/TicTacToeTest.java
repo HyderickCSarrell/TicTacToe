@@ -24,21 +24,22 @@ public class TicTacToeTest {
 	@Test
 	public void testMarkXInUpperRightCorner() {
 		model.markLocation(0,2, "X" );
-		assertEquals(1, model.getMark(0,2));
+		assertEquals("X", model.getMark(0,2));
 	}
 	
 	@Test
 	public void testMarkOInBottomLeftCorner() {
 		model.clearBoard();
 		model.markLocation(2,2, "O" );
-		assertEquals(2, model.getMark(2,2));
+		assertEquals("O", model.getMark(2,2));
 	}
 	
 	@Test
 	public void testUnableToMarkOverExistingMark() {
 		model.clearBoard();
+		model.markLocation(2,2, "O");
 		model.markLocation(2,2, "X");
-		assertNotSame(2, model.getMark(2,2));
+		assertEquals("O", model.getMark(2,2));
 	}
 	
 	@Test
@@ -46,14 +47,6 @@ public class TicTacToeTest {
 		model.clearBoard();
 		model.markLocation(0,0, "X");
 		assertEquals("", model.checkWinner());
-		/*
-		if (model.checkWinner() == "") {
-			assertTrue(true);
-		}
-		else {
-			assertTrue(true);
-		}
-		*/
 	}
 	
 	@Test

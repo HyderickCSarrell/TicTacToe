@@ -22,7 +22,7 @@ public class TicTacToeModel {
 	public boolean isEmpty() {
 		for (int i = 0; i < numOfRows; i++) {
 			for(int j = 0; j < numOfCols; j++){
-				if (getMark(i,j) != 0) {
+				if (getMark(i,j) != "") {
 					return false;
 				}
 			}
@@ -34,7 +34,7 @@ public class TicTacToeModel {
 		String returnValue = "";
 		for (int i = 0; i < numOfRows; i++) {
 			for(int j = 0; j < numOfCols; j++){
-				if (getMark(i,j) == 0) {
+				if (getMark(i,j) == "") {
 					return false;
 				}
 			}
@@ -44,7 +44,7 @@ public class TicTacToeModel {
 	
 	
 	public boolean markLocation(int row, int col, String mark){
-		if (getMark(row, col) == 0) {
+		if (getMark(row, col) == "") {
 			if (mark.equals("X")) {
 				TicTacToeBoard[row][col] = 1;
 			}
@@ -61,15 +61,23 @@ public class TicTacToeModel {
 		}
 	}
 	
-	public int getMark (int row, int col) {
-		return TicTacToeBoard[row][col];
+	public String getMark (int row, int col) {
+		if (TicTacToeBoard[row][col] == 1) {
+			return "X";
+		}
+		else if (TicTacToeBoard[row][col] == 2) {
+			return "O";
+		}
+		else {
+			return "";
+		}
 	}
 	
-	private boolean threeInRow(int mark) {
+	private boolean threeInRow(String mark) {
 		int markcount = 0;
 		for (int i = 0; i < numOfRows; i++) {
 			for (int j = 0; j < numOfCols; j++) {
-				if (getMark(i, j) == mark) {
+				if (getMark(i, j).equals(mark)) {
 					markcount++;
 				}
 			}
@@ -84,11 +92,11 @@ public class TicTacToeModel {
 		return false;
 	}
 	
-	private boolean threeInCol(int mark) {
+	private boolean threeInCol(String mark) {
 		int markcount = 0;
 		for (int i = 0; i < numOfCols; i++) {
 			for (int j = 0; j < numOfRows; j++) {
-				if (getMark(j, i) == mark) {
+				if (getMark(j, i).equals(mark)) {
 					markcount++;
 				}
 			}
@@ -102,7 +110,7 @@ public class TicTacToeModel {
 		return false;
 	}
 	
-	private boolean threeDiagonally(int mark) {
+	private boolean threeDiagonally(String mark) {
 		for (int i = 0; i < numOfCols; i++) {
 			if (getMark(i, i) != mark) {
 				return false;
@@ -118,10 +126,10 @@ public class TicTacToeModel {
 	}
 	
 	public String checkWinner() {
-		if (threeInRow(1) || threeInCol(1) || threeDiagonally(1)) {
+		if (threeInRow("X") || threeInCol("X") || threeDiagonally("X")) {
 			return "X";
 		}
-		else if (threeInRow(2) || threeInCol(2) || threeDiagonally(2)) {
+		else if (threeInRow("O") || threeInCol("O") || threeDiagonally("O")) {
 			return "O";
 		}
 		else {
@@ -134,3 +142,4 @@ public class TicTacToeModel {
 		}
 	}
 }
+

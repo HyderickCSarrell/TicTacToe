@@ -21,8 +21,8 @@ public class TicTacToeKeywords {
 	}
 	
 	public String getMark(int row, int col) {
-		int myMark = model.getMark(row,col);
-		if (myMark == 1){
+		String myMark = model.getMark(row,col);
+		if (myMark == "X"){
 			return "X";
 		}
 		else {
